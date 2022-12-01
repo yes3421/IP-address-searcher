@@ -33,10 +33,21 @@ std::map<int, std::string> intToMonth{
     {10, "Nov"}, {11, "Dec"},
 };
 
-Date::Date(std::string& month, int day)
+Date::Date(std::string& month, int day, std::string& hour)
 {
     month_ = monthToInt[month];
     day_ = day;
+
+    int colon = hour.find(':');
+    hour_ = std::stoi(hour.substr(0, colon));
+    hour.erase(0, colon + 1);
+    
+    colon = hour.find(':');
+    minute_ = std::stoi(hour.substr(0, colon));
+    hour.erase(0, colon + 1);
+    
+    second_ = std::stoi(hour);
+    hour.erase();
 }
 
 bool Date::operator<(const Date& date)
@@ -47,6 +58,30 @@ bool Date::operator<(const Date& date)
     else if (month_ == date.month_) {
         if (day_ < date.day_) {
             return true;
+        }
+        else if (day_ == date.day_) {
+            if (hour_ < date.hour_) {
+                return true;
+            }
+            else if (hour_ == date.hour_) {
+                if (minute_ < date.minute_) {
+                    return true;
+                }
+                else if (minute_ == date.minute_) {
+                    if (second_ < date.second_) {
+                        return true;
+                    }
+                    else {
+                        return false;
+                    }
+                }
+                else  {
+                    return false;
+                }
+            }
+            else {
+                return false;
+            }
         }
         else {
             return false;
@@ -65,4 +100,12 @@ std::string Date::month() const
 int Date::day() const
 {
     return day_;
+}
+
+std::string Date::hour() const
+{
+    return
+    std::to_string(hour_) + ":" +
+    std::to_string(minute_) + ":" +
+    std::to_string(second_);
 }

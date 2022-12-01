@@ -22,7 +22,6 @@ void writeFile(std::vector<Record>& records)
     for (std::vector<Record>::size_type i = 0; i != records.size(); ++i) {
         file
         << records[i].date() << " "
-        << records[i].hour() << " "
         << records[i].ipAddress() << '\n';
     }
 }

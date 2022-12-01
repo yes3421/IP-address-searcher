@@ -24,12 +24,11 @@ public:
     Record(
         std::string& month,
         int day,
-        std::string hour,
+        std::string& hour,
         std::string& ipAddress
     );
 
     std::string date() const;
-    std::string hour() const;
     std::string ipAddress() const;
 
     Date dateType() const;
@@ -38,7 +37,6 @@ public:
 private:
     Date date_;
     IpAddress ipAddress_;
-    std::string hour_;
 
 };
 

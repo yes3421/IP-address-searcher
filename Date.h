@@ -20,16 +20,23 @@
 
 class Date {
 public:
-    Date(std::string& month, int day);
+    Date(
+        std::string& month, 
+        int day,
+        std::string& hour);
 
     bool operator<(const Date& date);
 
     std::string month() const;
     int day() const;
+    std::string hour() const;
 
 private:
     int month_;
     int day_;
+    int hour_;
+    int minute_;
+    int second_;
 
 };
 

@@ -37,7 +37,7 @@ int main()
 
     readFile(records);
 
-    std::sort(records.begin(), records.end(), compareIp);
+    std::sort(records.begin(), records.end(), compareDate);
 
     writeFile(records);
 
