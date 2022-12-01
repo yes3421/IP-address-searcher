@@ -20,16 +20,7 @@
 #include "Record.h"
 #include "ReadFile.h"
 #include "WriteFile.h"
-
-bool compareIp(const Record& record1, const Record& record2)
-{
-    return record1.ipAddressType() < record2.ipAddressType();
-}
-
-bool compareDate(const Record& record1, const Record& record2)
-{
-    return record1.dateType() < record2.dateType();
-}
+#include "Comparison.h"
 
 int main()
 {
@@ -37,7 +28,7 @@ int main()
 
     readFile(records);
 
-    std::sort(records.begin(), records.end(), compareDate);
+    std::sort(records.begin(), records.end(), compareIp);
 
     writeFile(records);
 
