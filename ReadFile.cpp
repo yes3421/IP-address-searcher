@@ -17,7 +17,7 @@
 
 void readFile(std::vector<Record>& records)
 {
-    std::ifstream input("bitacora3.txt");
+    std::ifstream input("bitacora3-1.txt");
 
     std::string line;
     std::string month;
