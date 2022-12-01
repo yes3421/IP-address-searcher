@@ -39,3 +39,13 @@ std::string Record::ipAddress() const
 {
     return ipAddress_.ipAddress();
 }
+
+Date Record::dateType() const
+{
+    return date_;
+}
+
+IpAddress Record::ipAddressType() const
+{
+    return ipAddress_;
+}

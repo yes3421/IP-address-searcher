@@ -32,6 +32,9 @@ public:
     std::string hour() const;
     std::string ipAddress() const;
 
+    Date dateType() const;
+    IpAddress ipAddressType() const;
+
 private:
     Date date_;
     IpAddress ipAddress_;

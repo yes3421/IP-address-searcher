@@ -23,12 +23,12 @@
 
 bool compareIp(const Record& record1, const Record& record2)
 {
-    return record1.ipAddress() < record2.ipAddress();
+    return record1.ipAddressType() < record2.ipAddressType();
 }
 
 bool compareDate(const Record& record1, const Record& record2)
 {
-    return record1.date() < record2.date();
+    return record1.dateType() < record2.dateType();
 }
 
 int main()
