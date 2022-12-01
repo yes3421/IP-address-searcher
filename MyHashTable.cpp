@@ -113,7 +113,7 @@ void MyHashTable::put(Record record){
 }
 
 // Devuelve el valor de la llave
-string MyHashTable::get(string key){
+void MyHashTable::get(string key){
     /*
      * Devuelve el valor de la key y llave ordenada
      * 
@@ -131,11 +131,19 @@ string MyHashTable::get(string key){
             }
         }
     }
-    return "";
+    return;
 }
 
 
 // Interfaz de usuario
 void MyHashTable::userInterface(){
-
+        string input;
+        char selection;
+    do{
+        std::cout << "Inserta IP: " << endl;
+        std::cin >> input;
+        this->get(input);
+        std::cout << "Y/N to continue: ";
+        std::cin >> selection;
+    } while (selection != 'N');
 }

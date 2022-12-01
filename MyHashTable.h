@@ -19,9 +19,9 @@
 #include <list>
 #include <string>
 #include <tuple>
-#include <map>
 #include <vector>
 #include "Record.h"
+#include "Comparison.h"
 
 class MyHashTable{
     private:
@@ -35,7 +35,7 @@ class MyHashTable{
         ~MyHashTable();
         bool isEmpty();
         void put(Record record);
-        std::string get(std::string key);
+        void get(std::string key);
         void remove(std::string key);
         void userInterface();
 };
