@@ -18,21 +18,18 @@
 Record::Record(
     std::string& month,
     int day,
-    std::string hour,
+    std::string& hour,
     std::string& ipAddress
-) : date_(month, day), ipAddress_(ipAddress)
+) : date_(month, day, hour), ipAddress_(ipAddress)
 {
-    hour_ = hour;
+    // Nothing
 }
 
 std::string Record::date() const
 {
-    return date_.month() + " " + std::to_string(date_.day());
-}
-
-std::string Record::hour() const
-{
-    return hour_;
+    return date_.month()
+    + " " + std::to_string(date_.day())
+    + " " + date_.hour();
 }
 
 std::string Record::ipAddress() const
