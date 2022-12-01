@@ -27,7 +27,7 @@ MyHashTable::MyHashTable(){
     */
     this->size = 0;
     this->sizeA = 11;
-    this->tabla = new list<tuple<string, vector<Record>>>*[this->sizeA];
+    this->tabla = new list<tuple<string, std::vector<Record>>>[this->sizeA];
 }
 
 // Destructor
@@ -97,14 +97,14 @@ void MyHashTable::put(Record record){
      * 
      * Complejidad: O(n) en caso de que se realice rehashing y O(1) en caso contrario
     */
-    int pos = this->getPos(record.IPAddress);
+    int pos = this->getPos(record.ipAddress());
     for (auto i = this->tabla[pos].begin(); i != this->tabla[pos].end(); i++){
-        if (std::get<0>(*i) == record.IPAddress){
+        if (std::get<0>(*i) == record.ipAddress()){
             std::get<1>(*i).push_back(record);
             return;
         }
     }
-    tuple<string, vector<Record>> newTup = make_tuple(record.IPAddress, vector<Record>{record});
+    tuple<string, vector<Record>> newTup = make_tuple(record.ipAddress(), vector<Record>{record});
     this->tabla[pos].push_back(newTup);
     this->size++;
     if (this->size > this->sizeA * 0.75){
@@ -140,7 +140,7 @@ void MyHashTable::userInterface(){
         string input;
         char selection;
     do{
-        std::cout << "Inserta IP: " << endl;
+        std::cout << "Inserta IP: ";
         std::cin >> input;
         this->get(input);
         std::cout << "Y/N to continue: ";

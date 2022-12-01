@@ -20,12 +20,14 @@
 #include <string>
 #include <tuple>
 #include <vector>
+#include <algorithm>
+
 #include "Record.h"
 #include "Comparison.h"
 
 class MyHashTable{
     private:
-        std::list<std::tuple<std::string, vector<Record>>> *tabla;
+        std::list<std::tuple<std::string, std::vector<Record>>> *tabla;
         int size; // Cantidad de valores que hay
         int sizeA; // Tamano del arreglo
         int getPos(std::string key);

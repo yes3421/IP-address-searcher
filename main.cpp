@@ -21,6 +21,7 @@
 #include "ReadFile.h"
 #include "WriteFile.h"
 #include "Comparison.h"
+#include "MyHashTable.h"
 
 int main()
 {
@@ -31,6 +32,14 @@ int main()
     std::sort(records.begin(), records.end(), compareIp);
 
     writeFile(records);
+
+    MyHashTable tabla;
+
+    for (int i = 0; i < records.size(); i++){
+        tabla.put(records[i]);
+    }
+
+    tabla.userInterface();
 
     return EXIT_SUCCESS;
 }
